@@ -7,11 +7,17 @@ class Welcome extends Component {
 
   authBtn = () => {
     const {isSubscribe} = this.state
-
     if (isSubscribe === true) {
-      return <button className="btn-styles">Subscribe</button>
+      return <button>Subscribe</button>
+      this.setState(prevState => {
+        isSubscribe: !prevState.isSubscribe
+      })
+    } else {
+      return <button>Subscribed</button>
+      this.staState(prevState => {
+        isSubscribe: !prevState.isSubscribe
+      })
     }
-    return <button className="btn-styles">Subscribed</button>
   }
 
   render() {
