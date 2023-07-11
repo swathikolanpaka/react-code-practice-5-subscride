@@ -5,29 +5,22 @@ import './index.css'
 class Welcome extends Component {
   state = {isSubscribe: true}
 
-  authBtn = () => {
-    const {isSubscribe} = this.state
-
-    if (isSubscribe === true) {
-      return <button>Subscribe</button>
-      this.setState(prevState => {
-        isSubscribe: !prevState.isSubscribe
-      })
-    } else {
-      return <button>Subscribed</button>
-      this.staState(prevState => {
-        isSubscribe: !prevState.isSubscribe
-      })
-    }
+  onButtonClick = () => {
+    this.setState(prevState => ({
+      isSubscribe: !prevState.isSubscribe,
+    }))
   }
 
   render() {
+    const {isSubscribe} = this.state
     return (
       <div className="bg-container">
         <div>
           <h1 className="heading"> Welcome</h1>
           <p className="description">Thank you!Happy Learning</p>
-          {this.authBtn()}
+          <button onClick={this.onButtonClick}>
+            {isSubscribe ? 'Subscribe' : 'Subscribed'}
+          </button>
         </div>
       </div>
     )
